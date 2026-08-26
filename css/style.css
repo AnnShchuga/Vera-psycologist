@@ -172,11 +172,24 @@ img{ max-width: 100%; display:block; }
   font-size: clamp(2.6rem, 6vw, 4.2rem);
   margin-bottom: 0.2em;
 }
+.hero-subtitle{
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--sage-deep);
+  margin-bottom: 0.5em;
+}
 .hero-lead{
   font-size: 1.2rem;
   color: var(--ink-soft);
   max-width: 44ch;
   margin-bottom: 1.6em;
+}
+.hero-micro{
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin-top: 0.8em;
+  margin-bottom: 0;
 }
 .hero-actions{
   display:flex; flex-wrap:wrap; gap: 14px;
