@@ -206,7 +206,7 @@ img{ max-width: 100%; display:block; }
 .hero-blob{
   position:absolute;
   width: 380px; height: 380px;
-  background: linear-gradient(135deg, var(--butter), var(--sage) 70%);
+  background: linear-gradient(135deg, var(--beige-deep), var(--sage) 70%);
   border-radius: 42% 58% 65% 35% / 45% 40% 60% 55%;
   opacity: 0.55;
   filter: blur(2px);
@@ -303,7 +303,7 @@ img{ max-width: 100%; display:block; }
   color: var(--ink);
 }
 .book-teaser{
-  background: var(--butter);
+  background: var(--beige-deep);
   border-radius: var(--radius);
   padding: 24px 28px;
 }
@@ -474,7 +474,7 @@ img{ max-width: 100%; display:block; }
   background: var(--sage-deep);
   color: #fff;
 }
-.booking-section .section-eyebrow{ color: var(--butter); }
+.booking-section .section-eyebrow{ color: rgba(255,255,255,0.8); }
 .booking-section h2{ color: #fff; }
 .booking-inner{ text-align:center; }
 .booking-inner .btn-large{ margin-top: 12px; }
@@ -553,7 +553,7 @@ img{ max-width: 100%; display:block; }
 
 /* ---------- Footer ---------- */
 .site-footer{
-  background: var(--ink);
+  background: #2b3a42;
   color: rgba(255,255,255,0.85);
   padding: 64px 0 0;
 }
