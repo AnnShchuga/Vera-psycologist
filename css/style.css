@@ -3,8 +3,11 @@
   --cream: #faf6ee;
   --beige: #f1e9da;
   --beige-deep: #e6dac2;
-  --sage: #97a780;
-  --sage-deep: #74855f;
+  /* --sage / --sage-deep: base site accent — now dusty blue, not green.
+     Kept the variable names to avoid touching every usage; project pages
+     (brunch/unpack/money) override these locally with their own accent. */
+  --sage: #8fa8bd;
+  --sage-deep: #4f6b82;
   --butter: #eddfb0;
   --ink: #40372c;
   --ink-soft: #6b6053;
