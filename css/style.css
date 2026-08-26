@@ -172,11 +172,24 @@ img{ max-width: 100%; display:block; }
   font-size: clamp(2.6rem, 6vw, 4.2rem);
   margin-bottom: 0.2em;
 }
+.hero-subtitle{
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--sage-deep);
+  margin-bottom: 0.5em;
+}
 .hero-lead{
   font-size: 1.2rem;
   color: var(--ink-soft);
   max-width: 44ch;
   margin-bottom: 1.6em;
+}
+.hero-micro{
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin-top: 0.8em;
+  margin-bottom: 0;
 }
 .hero-actions{
   display:flex; flex-wrap:wrap; gap: 14px;
@@ -225,6 +238,31 @@ img{ max-width: 100%; display:block; }
   text-align:center;
 }
 .trust-inner .dot{ opacity: 0.5; }
+
+.hero-solo .hero-inner{
+  grid-template-columns: 1fr;
+  text-align: center;
+  padding-bottom: 64px;
+}
+.hero-solo .hero-text{ max-width: 720px; margin: 0 auto; }
+.hero-solo .hero-lead{ margin-left: auto; margin-right: auto; }
+.hero-solo .hero-actions{ justify-content: center; }
+
+.back-link{
+  display:inline-flex; align-items:center; gap: 6px;
+  font-size: 0.9rem; font-weight: 600;
+  color: var(--sage-deep); text-decoration:none;
+  margin-bottom: 20px;
+}
+.back-link:hover{ text-decoration: underline; }
+
+.includes-grid{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin: 0 0 2.4em;
+}
+.includes-grid .method-card{ padding: 22px 26px; }
 
 /* ---------- Sections ---------- */
 .section{ padding: 96px 0; }
@@ -380,6 +418,23 @@ img{ max-width: 100%; display:block; }
 }
 .service-card .btn{ margin-top: auto; align-self: flex-start; }
 
+/* ---------- Projects ---------- */
+.projects-grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.project-card{
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 30px;
+  box-shadow: var(--shadow);
+  display:flex; flex-direction:column;
+  border: 1px solid var(--line);
+}
+.project-card p{ font-size: 0.95rem; }
+.project-card .btn{ margin-top: auto; align-self: flex-start; }
+
 /* ---------- Courses ---------- */
 .courses-grid{
   display:grid;
@@ -447,6 +502,19 @@ img{ max-width: 100%; display:block; }
   gap: 40px;
   align-items:center;
 }
+
+.projects-teaser-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.projects-teaser-inner h2,
+.projects-teaser-inner p{ margin-bottom: 0; }
+.projects-teaser-inner > div{ max-width: 60ch; }
+.projects-teaser-inner .section-eyebrow{ margin-bottom: 12px; }
+.projects-teaser-inner h2{ margin-bottom: 0.4em; }
 .lead-magnet-actions{
   display:flex; flex-direction:column; gap: 14px;
 }
@@ -554,9 +622,13 @@ img{ max-width: 100%; display:block; }
   .about-grid{ grid-template-columns: 1fr; }
   .methods-grid{ grid-template-columns: repeat(2, 1fr); }
   .services-grid{ grid-template-columns: repeat(2, 1fr); }
+  .projects-grid{ grid-template-columns: repeat(2, 1fr); }
   .courses-grid{ grid-template-columns: 1fr; }
+  .includes-grid{ grid-template-columns: 1fr; }
   .steps{ grid-template-columns: 1fr; }
   .lead-magnet-inner{ grid-template-columns: 1fr; text-align:center; }
+  .projects-teaser-inner{ flex-direction: column; text-align:center; }
+  .projects-teaser-inner > div{ max-width: 100%; }
   .lead-magnet-actions{ align-items:center; }
   .footer-inner{ grid-template-columns: 1fr; }
 }
@@ -564,6 +636,7 @@ img{ max-width: 100%; display:block; }
 @media (max-width: 620px){
   .methods-grid{ grid-template-columns: 1fr; }
   .services-grid{ grid-template-columns: 1fr; }
+  .projects-grid{ grid-template-columns: 1fr; }
   .section{ padding: 64px 0; }
   .trust-inner{ font-size: 0.82rem; }
 }
