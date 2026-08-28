@@ -227,6 +227,10 @@ img{ max-width: 100%; display:block; }
   color: var(--ink-soft);
   font-size: 1.1rem;
 }
+.hero-photo{
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
 
 .trust-strip{
   background: var(--sage-deep);
@@ -311,6 +315,19 @@ img{ max-width: 100%; display:block; }
 .book-teaser a{
   font-weight: 600; text-decoration: none; color: var(--sage-deep);
   border-bottom: 1px solid currentColor;
+}
+
+.about-photo{
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  margin-bottom: 24px;
+}
+.about-photo img{
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  display: block;
 }
 
 .side-card{
@@ -420,6 +437,46 @@ img{ max-width: 100%; display:block; }
   color: var(--ink);
 }
 .service-card .btn{ margin-top: auto; align-self: flex-start; }
+
+/* ---------- Testimonials ---------- */
+.testimonials-grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.testimonial-card{
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 30px;
+  box-shadow: var(--shadow);
+  display:flex; flex-direction:column;
+}
+.testimonial-card::before{
+  content: "\201C";
+  font-family: var(--font-display);
+  font-size: 2.6rem;
+  line-height: 1;
+  color: var(--sage);
+  margin-bottom: 0.1em;
+}
+.testimonial-card p{
+  font-size: 0.95rem;
+  color: var(--ink);
+  margin: 0 0 1.4em;
+  flex: 1;
+}
+.testimonial-author{
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--ink);
+}
+.testimonial-tag{
+  display:block;
+  font-size: 0.8rem;
+  color: var(--sage-deep);
+  font-weight: 600;
+  margin-top: 0.2em;
+}
 
 /* ---------- Projects ---------- */
 .projects-grid{
@@ -775,6 +832,7 @@ img{ max-width: 100%; display:block; }
   .about-grid{ grid-template-columns: 1fr; }
   .methods-grid{ grid-template-columns: repeat(2, 1fr); }
   .services-grid{ grid-template-columns: repeat(2, 1fr); }
+  .testimonials-grid{ grid-template-columns: repeat(2, 1fr); }
   .projects-grid{ grid-template-columns: repeat(2, 1fr); }
   .resource-grid{ grid-template-columns: repeat(2, 1fr); }
   .crisis-grid{ grid-template-columns: 1fr; }
@@ -791,6 +849,7 @@ img{ max-width: 100%; display:block; }
 @media (max-width: 620px){
   .methods-grid{ grid-template-columns: 1fr; }
   .services-grid{ grid-template-columns: 1fr; }
+  .testimonials-grid{ grid-template-columns: 1fr; }
   .projects-grid{ grid-template-columns: 1fr; }
   .resource-grid{ grid-template-columns: 1fr; }
   .section{ padding: 64px 0; }
