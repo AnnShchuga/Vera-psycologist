@@ -553,7 +553,7 @@ img{ max-width: 100%; display:block; }
 
 /* ---------- Footer ---------- */
 .site-footer{
-  background: #2b3a42;
+  background: var(--sage-deep);
   color: rgba(255,255,255,0.85);
   padding: 64px 0 0;
 }
