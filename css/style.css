@@ -227,6 +227,10 @@ img{ max-width: 100%; display:block; }
   color: var(--ink-soft);
   font-size: 1.1rem;
 }
+.hero-photo{
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
 
 .trust-strip{
   background: var(--sage-deep);
@@ -311,6 +315,19 @@ img{ max-width: 100%; display:block; }
 .book-teaser a{
   font-weight: 600; text-decoration: none; color: var(--sage-deep);
   border-bottom: 1px solid currentColor;
+}
+
+.about-photo{
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  margin-bottom: 24px;
+}
+.about-photo img{
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  display: block;
 }
 
 .side-card{
