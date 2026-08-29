@@ -14,7 +14,7 @@
   --line: #e2d5bd;
   --white: #ffffff;
 
-  --font-display: 'Unbounded', 'Arial Narrow', sans-serif;
+  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
   --font-body: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-accent: 'Caveat', cursive;
 
@@ -48,15 +48,22 @@ body{
 
 h1,h2,h3{
   font-family: var(--font-display);
-  font-weight: 700;
+  font-weight: 600;
   color: var(--ink);
   margin: 0 0 0.5em;
-  line-height: 1.03;
-  letter-spacing: -0.02em;
+  line-height: 1.08;
+  letter-spacing: -0.005em;
 }
 
 h2{ font-size: clamp(2.1rem, 3.8vw, 3.1rem); }
-h3{ font-size: 1.3rem; letter-spacing: -0.01em; }
+h3{ font-size: 1.3rem; }
+
+/* The system's signature move: one word in a heading set in italic serif
+   for editorial emphasis — pairs with the roman weight around it. */
+em.accent-italic{
+  font-style: italic;
+  font-weight: 500;
+}
 
 p{ margin: 0 0 1em; color: var(--ink-soft); }
 
@@ -184,8 +191,8 @@ img{ max-width: 100%; display:block; }
 }
 .hero h1{
   font-size: clamp(2.9rem, 6.6vw, 4.9rem);
-  line-height: 0.98;
-  letter-spacing: -0.03em;
+  line-height: 1.04;
+  letter-spacing: -0.005em;
   margin-bottom: 0.2em;
 }
 .hero-subtitle{
@@ -331,9 +338,10 @@ img{ max-width: 100%; display:block; }
   border-left: 4px solid var(--sage-deep);
   background: var(--wash);
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  font-family: var(--font-accent);
-  font-weight: 600;
-  font-size: 1.65rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.5rem;
   line-height: 1.4;
   color: var(--ink);
 }
