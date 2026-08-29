@@ -239,15 +239,10 @@ img{ max-width: 100%; display:block; }
   min-height: 380px;
 }
 .hero-blob{
-  position:absolute;
-  width: 320px; height: 380px;
-  top: 28px; right: -18px;
-  background: var(--wash-deep);
-  border-radius: var(--radius);
+  display:none;
 }
 .hero-photo-frame{
   position:relative;
-  z-index: 1;
   width: 320px; height: 380px;
   border-radius: var(--radius);
   background: var(--beige-deep);
@@ -776,7 +771,10 @@ img{ max-width: 100%; display:block; }
 
 /* ---------- Footer ---------- */
 .site-footer{
-  background: var(--sage-deep);
+  /* Darker than --sage-deep on purpose: the booking section right above it
+     uses --sage-deep too, and identical solid colors made the two blocks
+     blend into one on project pages with no section in between. */
+  background: color-mix(in srgb, var(--sage-deep) 100%, black 22%);
   color: rgba(255,255,255,0.85);
   padding: 64px 0 0;
 }
@@ -865,7 +863,6 @@ img{ max-width: 100%; display:block; }
   .hero-lead{ margin-left:auto; margin-right:auto; }
   .hero-actions{ justify-content:center; }
   .hero-visual{ order:-1; min-height: 300px; }
-  .hero-blob{ width: 240px; height: 290px; top: 20px; right: -12px; }
   .hero-photo-frame{ width: 240px; height: 290px; }
 
   .about-grid{ grid-template-columns: 1fr; }
