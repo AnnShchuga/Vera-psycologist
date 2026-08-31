@@ -856,6 +856,20 @@ img{ max-width: 100%; display:block; }
   font-size: 0.82rem;
   color: rgba(255,255,255,0.75);
 }
+.footer-signature{
+  display:inline-flex; align-items:center; gap: 6px;
+}
+.footer-signature .icon-heart{
+  width: 14px; height: 14px;
+  color: var(--butter);
+  flex-shrink: 0;
+}
+.footer-signature a{
+  color: rgba(255,255,255,0.88);
+  font-weight: 600;
+  text-decoration: none;
+}
+.footer-signature a:hover{ text-decoration: underline; }
 
 .back-to-top{
   position: fixed;
