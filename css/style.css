@@ -1,28 +1,31 @@
 /* ---------- Tokens ---------- */
 :root{
-  --cream: #faf6ee;
-  --beige: #f1e9da;
-  --beige-deep: #e6dac2;
-  /* --sage / --sage-deep: base site accent — now dusty blue, not green.
+  /* Warm parchment base + near-black ink + one confident clay accent —
+     inspired by claude.com/product/design's editorial palette, retuned
+     to our own hues (not a literal copy of Anthropic's exact colors). */
+  --cream: #f8f4ea;
+  --beige: #ede4cf;
+  --beige-deep: #ddd0b0;
+  /* --sage / --sage-deep: base site accent — burnt clay/rust.
      Kept the variable names to avoid touching every usage; project pages
      (brunch/unpack/money) override these locally with their own accent. */
-  --sage: #8fa8bd;
-  --sage-deep: #4f6b82;
+  --sage: #b6704c;
+  --sage-deep: #874a2c;
   --butter: #eddfb0;
-  --ink: #40372c;
-  --ink-soft: #6b6053;
-  --line: #e2d5bd;
+  --ink: #1c1815;
+  --ink-soft: #6b6459;
+  --line: #e0d4b8;
   --white: #ffffff;
 
   --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
   --font-body: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-accent: 'Caveat', cursive;
 
-  /* Generous, uniform radii — no sharp corners, no organic blob shapes.
-     Cards/images share one scale so the whole site reads as one system. */
-  --radius: 28px;
-  --radius-sm: 16px;
-  --shadow: 0 10px 30px -12px rgba(64, 55, 44, 0.18);
+  /* Crisper, smaller radius scale than before — Claude's cards read as
+     tight rectangles with pill-shaped buttons, not uniform soft blobs. */
+  --radius: 20px;
+  --radius-sm: 12px;
+  --shadow: 0 8px 24px -14px rgba(28, 24, 21, 0.22);
   --container: 1140px;
 
   /* Pastel "wash" tied to each page's own accent (--sage), not a fixed
