@@ -1,31 +1,30 @@
 /* ---------- Tokens ---------- */
 :root{
-  /* Warm parchment base + near-black ink + one confident clay accent —
-     inspired by claude.com/product/design's editorial palette, retuned
-     to our own hues (not a literal copy of Anthropic's exact colors). */
-  --cream: #f8f4ea;
-  --beige: #ede4cf;
-  --beige-deep: #ddd0b0;
-  /* --sage / --sage-deep: base site accent — burnt clay/rust.
+  /* Classic beige + soft pine green + butter — per Vera's own brief,
+     WCAG-checked palette (ink on bg ~15:1, pine on bg ~9.2:1). */
+  --cream: #f6f1e4;
+  --beige: #ece1c7;
+  --beige-deep: #cfc6af;
+  /* --sage / --sage-deep: base site accent — soft pine green.
      Kept the variable names to avoid touching every usage; project pages
      (brunch/unpack/money) override these locally with their own accent. */
-  --sage: #b6704c;
-  --sage-deep: #874a2c;
-  --butter: #eddfb0;
-  --ink: #1c1815;
-  --ink-soft: #6b6459;
-  --line: #e0d4b8;
+  --sage: #33452b;
+  --sage-deep: #20301a;
+  --butter: #d9ae49;
+  --ink: #201c14;
+  --ink-soft: #524c3b;
+  --line: #ddd3bb;
   --white: #ffffff;
 
-  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
-  --font-body: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-accent: 'Caveat', cursive;
 
-  /* Crisper, smaller radius scale than before — Claude's cards read as
-     tight rectangles with pill-shaped buttons, not uniform soft blobs. */
+  /* Crisper, smaller radius scale — cards read as tight rectangles with
+     pill-shaped buttons, not uniform soft blobs. */
   --radius: 20px;
   --radius-sm: 12px;
-  --shadow: 0 8px 24px -14px rgba(28, 24, 21, 0.22);
+  --shadow: 0 8px 24px -14px rgba(32, 28, 20, 0.22);
   --container: 1140px;
 
   /* Pastel "wash" tied to each page's own accent (--sage), not a fixed
