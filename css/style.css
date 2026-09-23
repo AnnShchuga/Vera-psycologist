@@ -664,9 +664,12 @@ img{ max-width: 100%; display:block; }
 }
 
 /* ---------- FAQ ---------- */
+#faq .wrap{ text-align: center; }
 .faq-list{
   display:flex; flex-direction:column; gap: 14px;
   max-width: 920px;
+  margin: 0 auto;
+  text-align: left;
 }
 .faq-item{
   background: var(--white);
