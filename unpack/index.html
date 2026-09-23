@@ -11,11 +11,29 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@400;500;600;700;800&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/style.css">
 <style>
-  /* Собственная цветовая гамма проекта — глубокий марсала */
+  /* Собственная цветовая гамма проекта — почти чёрный фон + кирпично-красный
+     акцент вместо общего бежевого: смысл темы — женская горящая энергия. */
   :root{
-    --sage: #b98484;
-    --sage-deep: #723436;
+    --sage: #d98c78;
+    --sage-deep: #a8432f;
+    --cream: #18110e;
+    --beige: #241a16;
+    --beige-deep: #2c211c;
+    --ink: #f5ece4;
+    --ink-soft: #d3c0b3;
+    --line: #3c2c24;
+    --wash: color-mix(in srgb, var(--sage) 26%, var(--cream));
+    --wash-deep: color-mix(in srgb, var(--sage) 40%, var(--cream));
   }
+  /* Шапка сайта везде остаётся светлой — возвращаем тёмный текст поверх неё */
+  .site-header .logo,
+  .site-header .main-nav a{ color: #201c14; }
+  .site-header .main-nav a:hover{ color: var(--sage-deep); }
+  .site-header .nav-toggle span{ background: #201c14; }
+  /* Карточки — тёмная поверхность вместо белой */
+  .method-card, .testimonial-card{ background: var(--beige-deep); }
+  /* Тёмное перо-иллюстрация невидимо на тёмном фоне — осветляем */
+  .section-illustration{ filter: invert(1) brightness(1.6); opacity: 0.8; }
 </style>
 </head>
 <body>
