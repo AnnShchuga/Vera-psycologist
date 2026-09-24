@@ -337,6 +337,7 @@ img{ max-width: 100%; display:block; }
   grid-template-columns: repeat(2, 1fr);
   gap: 16px;
   margin: 0 0 2.4em;
+  counter-reset: method;
 }
 .includes-grid .method-card{ padding: 22px 26px; }
 
@@ -350,6 +351,16 @@ img{ max-width: 100%; display:block; }
   font-weight: 600;
   color: var(--sage-deep);
   margin-bottom: 12px;
+}
+.section-eyebrow::before{
+  content: "";
+  display: inline-block;
+  width: 32px;
+  height: 2px;
+  margin-right: 10px;
+  margin-bottom: 3px;
+  background: var(--sage);
+  vertical-align: middle;
 }
 .section-illustration{
   width: 76px;
@@ -452,12 +463,25 @@ img{ max-width: 100%; display:block; }
   display:grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
+  counter-reset: method;
 }
 .method-card{
+  position: relative;
   background: var(--white);
   border-radius: var(--radius);
   padding: 26px;
   box-shadow: var(--shadow);
+  counter-increment: method;
+}
+.method-card::before{
+  content: counter(method, decimal-leading-zero);
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--sage);
+  opacity: 0.5;
+  margin-bottom: 0.4em;
 }
 .method-card h3{ font-size: 1.05rem; margin-bottom: 0.5em; }
 .method-card p{ font-size: 0.92rem; margin: 0; }
@@ -548,6 +572,13 @@ img{ max-width: 100%; display:block; }
   color: var(--ink);
   margin: 0 0 1.4em;
   flex: 1;
+}
+.quote-highlight{
+  background: color-mix(in srgb, var(--butter) 55%, transparent);
+  color: var(--ink);
+  padding: 0.05em 0.2em;
+  border-radius: 4px;
+  font-weight: 600;
 }
 .testimonial-author{
   font-weight: 700;
@@ -833,8 +864,8 @@ img{ max-width: 100%; display:block; }
 }
 .footer-inner{
   display:grid;
-  grid-template-columns: 1.3fr 1fr 1fr;
-  gap: 40px;
+  grid-template-columns: 1.2fr 1fr 1fr 1fr;
+  gap: 32px;
   padding-bottom: 48px;
   border-bottom: 1px solid rgba(255,255,255,0.12);
 }
@@ -845,9 +876,16 @@ img{ max-width: 100%; display:block; }
   font-family: var(--font-body); font-weight: 600;
   margin-bottom: 1em;
 }
+.footer-col-subhead{ margin-top: 1.6em; }
 .footer-links{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap: 10px; }
 .footer-links a{ text-decoration:none; color: rgba(255,255,255,0.8); font-size: 0.92rem; }
 .footer-links a:hover{ color: #fff; }
+.footer-links li{ color: rgba(255,255,255,0.6); font-size: 0.85rem; }
+.footer-links a.footer-link-crisis{
+  color: var(--butter);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
 
 /* White pill instead of the default filled button — against a dark footer
    the accent-colored button barely registered as its own shape. */
