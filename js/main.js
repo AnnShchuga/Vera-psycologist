@@ -17,6 +17,9 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // Calm scroll-reveal for cards — fade/slide up once, no loops, no neon.
+  // Large rootMargin triggers the reveal well before a card reaches the
+  // viewport, so fast/jump scrolling (End key, nav links, programmatic
+  // scroll) never shows a half-faded or blank card.
   var revealEls = document.querySelectorAll(
     '.method-card, .testimonial-card, .project-card, .service-card, ' +
     '.course-card, .faq-item, .crisis-card, .article-card, .resource-card, ' +
@@ -25,10 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   if ('IntersectionObserver' in window && !reduceMotion && revealEls.length) {
-    revealEls.forEach(function (el, i) {
-      el.classList.add('reveal');
-      el.style.transitionDelay = (Math.min(i % 4, 3) * 0.08) + 's';
-    });
+    revealEls.forEach(function (el) { el.classList.add('reveal'); });
 
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0, rootMargin: '600px 0px 600px 0px' });
 
     revealEls.forEach(function (el) { observer.observe(el); });
   }
