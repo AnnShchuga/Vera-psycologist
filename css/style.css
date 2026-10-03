@@ -38,6 +38,22 @@
 *{ box-sizing: border-box; }
 html{ scroll-behavior: smooth; }
 
+/* Calm scroll-reveal — fade + slide up once, no bounce, no repeat.
+   .reveal is added by JS only when IntersectionObserver is supported
+   and the visitor hasn't asked for reduced motion. */
+.reveal{
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal-visible{
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce){
+  .reveal{ opacity: 1; transform: none; transition: none; }
+}
+
 body{
   margin:0;
   background: var(--cream);
