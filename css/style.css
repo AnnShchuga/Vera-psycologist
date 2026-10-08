@@ -16,8 +16,8 @@
   --line: #ddd3bb;
   --white: #ffffff;
 
-  --font-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Fira Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body: 'Fira Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-accent: 'Caveat', cursive;
 
   /* Crisper, smaller radius scale — cards read as tight rectangles with
@@ -76,7 +76,7 @@ h1,h2,h3{
 h2{ font-size: clamp(2.1rem, 3.8vw, 3.1rem); }
 h3{ font-size: 1.3rem; }
 
-/* The system's signature move: one word in a heading set in italic serif
+/* The system's signature move: one word in a heading set in italic
    for editorial emphasis — pairs with the roman weight around it. */
 em.accent-italic{
   font-style: italic;
@@ -331,7 +331,10 @@ img{ max-width: 100%; display:block; }
   white-space: nowrap;
 }
 
-/* ---------- Dark sections w/ drifting particle accent ---------- */
+/* ---------- Light "editorial" sections w/ drifting particle accent ----------
+   Reference (Bortnyak) runs these black bg / white text / orange accent;
+   per brief we invert the whole scheme into our own palette:
+   black→light surface, white→ink text, orange→sage-deep (green). */
 .particle-bg{ position:relative; }
 .particle-canvas{
   position:absolute; inset:0;
@@ -340,31 +343,29 @@ img{ max-width: 100%; display:block; }
   z-index:0;
 }
 
-.hero-dark{
+.hero-accent{
   position:relative;
-  background: var(--ink);
-  color: #fff;
+  background: var(--beige);
+  color: var(--ink);
   overflow:hidden;
 }
-.hero-dark .hero-inner,
-.hero-dark .trust-strip{ position:relative; z-index:1; }
-.hero-dark .eyebrow{ color: var(--butter); }
-.hero-dark .hero-subtitle{ color: var(--butter); }
-.hero-dark .hero-lead{ color: rgba(255,255,255,0.78); }
-.hero-dark .word-strike{ text-decoration-color: var(--butter); }
-.hero-dark .word-handwritten{ color: var(--butter); }
-.hero-dark .hero-micro{ color: var(--butter); }
-.hero-dark .btn-primary{
-  background: var(--butter);
-  color: var(--ink);
-  box-shadow: 0 16px 34px -16px rgba(217, 174, 73, 0.45);
+.hero-accent .hero-inner,
+.hero-accent .trust-strip{ position:relative; z-index:1; }
+.hero-accent .eyebrow{ color: var(--sage-deep); }
+.hero-accent .hero-subtitle{ color: var(--sage-deep); }
+.hero-accent .hero-lead{ color: var(--ink-soft); }
+.hero-accent .word-strike{ text-decoration-color: var(--sage-deep); }
+.hero-accent .word-handwritten{ color: var(--sage-deep); }
+.hero-accent .hero-micro{ color: var(--sage-deep); }
+.hero-accent .btn-primary{
+  background: var(--sage-deep);
+  color: #fff;
+  box-shadow: var(--cta-shadow);
 }
-.hero-dark .btn-primary:hover{ filter: brightness(1.06); }
-.hero-dark .btn-ghost{ color:#fff; border-color: rgba(255,255,255,0.35); }
-.hero-dark .btn-ghost:hover{ background: rgba(255,255,255,0.1); }
-.hero-dark .hero-photo-frame{
-  box-shadow: 0 20px 50px -20px rgba(0,0,0,0.6);
-  border: 1px solid rgba(255,255,255,0.08);
+.hero-accent .btn-ghost{ color: var(--ink); border-color: var(--beige-deep); }
+.hero-accent .btn-ghost:hover{ background: var(--cream); }
+.hero-accent .hero-photo-frame{
+  box-shadow: var(--shadow);
 }
 .hero-photo-bw{
   filter: grayscale(1) contrast(1.05);
@@ -373,31 +374,31 @@ img{ max-width: 100%; display:block; }
 /* "Обо мне в цифрах" treatment — thin oversized numbers, no card chrome.
    Only the two real numeric facts get the big-number style; credentials
    stay as plain pills since they aren't numbers. */
-.hero-dark .trust-strip{
+.hero-accent .trust-strip{
   background: transparent;
-  border-top: 1px solid rgba(255,255,255,0.12);
+  border-top: 1px solid var(--beige-deep);
   padding: 44px 0 36px;
 }
-.hero-dark .trust-inner{ column-gap: 64px; }
-.hero-dark .stat-item{ background: none; padding: 0; }
-.hero-dark .stat-num{
+.hero-accent .trust-inner{ column-gap: 64px; }
+.hero-accent .stat-item{ background: none; padding: 0; }
+.hero-accent .stat-num{
   font-weight: 300;
   font-size: 3.2rem;
-  color: var(--butter);
+  color: var(--sage-deep);
   position:relative;
   padding-bottom: 12px;
 }
-.hero-dark .stat-num::after{
+.hero-accent .stat-num::after{
   content:'';
   position:absolute; left:50%; bottom:0;
   transform: translateX(-50%);
   width: 36px; height:2px;
   background: var(--butter);
 }
-.hero-dark .trust-inner span.stat-label{ color: rgba(255,255,255,0.72); }
-.hero-dark .trust-credentials span{
-  background: rgba(255,255,255,0.08);
-  color: rgba(255,255,255,0.85);
+.hero-accent .trust-inner span.stat-label{ color: var(--ink-soft); }
+.hero-accent .trust-credentials span{
+  background: var(--cream);
+  color: var(--ink);
 }
 
 .hero-solo .hero-inner{
@@ -571,47 +572,46 @@ img{ max-width: 100%; display:block; }
 .method-card h3{ font-size: 1.05rem; margin-bottom: 0.5em; }
 .method-card p{ font-size: 0.92rem; margin: 0; }
 
-/* ---------- Dark section shell (services pricing, reference-inspired) ---------- */
-.section-dark{
+/* ---------- Light section shell (services pricing, reference-inspired) ---------- */
+.section-accent{
   position:relative;
-  background: var(--ink);
-  color:#fff;
+  background: var(--beige);
+  color: var(--ink);
   overflow:hidden;
 }
-.section-dark .wrap{ position:relative; z-index:1; }
-.section-dark .section-eyebrow{ color: rgba(255,255,255,0.72); }
-.section-dark .section-eyebrow::before{ background: var(--butter); }
-.section-dark h2{ color: #fff; }
-.section-dark .section-lead{ color: rgba(255,255,255,0.7); }
+.section-accent .wrap{ position:relative; z-index:1; }
+.section-accent .section-eyebrow{ color: var(--sage-deep); }
+.section-accent .section-eyebrow::before{ background: var(--sage); }
+.section-accent h2{ color: var(--ink); }
+.section-accent .section-lead{ color: var(--ink-soft); }
 
-.section-dark .service-card{
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.09);
-  box-shadow: none;
+.section-accent .service-card{
+  background: var(--white);
+  border: 1px solid var(--beige-deep);
+  box-shadow: var(--shadow);
 }
-.section-dark .service-card.featured{ border-color: var(--butter); }
-.section-dark .badge{ background: var(--butter); color: var(--ink); }
-.section-dark .service-meta{ color: rgba(255,255,255,0.55); }
-.section-dark .service-card h3{ color: #fff; }
-.section-dark .service-card p{ color: rgba(255,255,255,0.72); }
-.section-dark .price-list{ border-top-color: rgba(255,255,255,0.12); }
-.section-dark .price-list li{ border-bottom-color: rgba(255,255,255,0.12); }
-.section-dark .price-list li span{ color: rgba(255,255,255,0.6); }
-.section-dark .price-list li strong{ color: var(--butter); }
-.section-dark .service-price{ color: var(--butter); font-weight: 700; }
-.section-dark .service-price-accent{ color: var(--butter); }
-.section-dark .btn-outline{
+.section-accent .service-card.featured{ border-color: var(--sage-deep); }
+.section-accent .badge{ background: var(--sage-deep); color: #fff; }
+.section-accent .service-meta{ color: var(--sage-deep); }
+.section-accent .service-card h3{ color: var(--ink); }
+.section-accent .service-card p{ color: var(--ink-soft); }
+.section-accent .price-list{ border-top-color: var(--line); }
+.section-accent .price-list li{ border-bottom-color: var(--line); }
+.section-accent .price-list li span{ color: var(--ink-soft); }
+.section-accent .price-list li strong{ color: var(--ink); }
+.section-accent .service-price{ color: var(--sage-deep); font-weight: 700; }
+.section-accent .service-price-accent{ color: var(--sage-deep); }
+.section-accent .btn-outline{
   background: transparent;
-  color: var(--butter);
-  border-color: var(--butter);
+  color: var(--sage-deep);
+  border-color: var(--sage-deep);
 }
-.section-dark .btn-outline:hover{ background: var(--butter); color: var(--ink); }
-.section-dark .btn-primary{
-  background: var(--butter);
-  color: var(--ink);
-  box-shadow: 0 16px 34px -16px rgba(217, 174, 73, 0.45);
+.section-accent .btn-outline:hover{ background: var(--sage-deep); color: #fff; }
+.section-accent .btn-primary{
+  background: var(--sage-deep);
+  color: #fff;
+  box-shadow: var(--cta-shadow);
 }
-.section-dark .btn-primary:hover{ filter: brightness(1.06); }
 
 /* ---------- Services ---------- */
 .services-grid{
@@ -830,19 +830,18 @@ img{ max-width: 100%; display:block; }
 /* ---------- Booking ---------- */
 .booking-section{
   position:relative;
-  background: var(--ink);
-  color: #fff;
+  background: var(--wash);
+  color: var(--ink);
   overflow:hidden;
 }
 .booking-section .wrap{ position:relative; z-index:1; }
-.booking-section .section-eyebrow{ color: rgba(255,255,255,0.8); }
-.booking-section h2{ color: #fff; }
+.booking-section .section-eyebrow{ color: var(--sage-deep); }
+.booking-section h2{ color: var(--ink); }
 .booking-section .btn-primary{
-  background: var(--butter);
-  color: var(--ink);
-  box-shadow: 0 16px 34px -16px rgba(217, 174, 73, 0.45);
+  background: var(--sage-deep);
+  color: #fff;
+  box-shadow: var(--cta-shadow);
 }
-.booking-section .btn-primary:hover{ filter: brightness(1.06); }
 .booking-inner{ text-align:center; }
 .booking-inner .btn-large{ margin-top: 12px; }
 
@@ -857,14 +856,14 @@ img{ max-width: 100%; display:block; }
   flex-shrink:0;
   width: 40px; height: 40px;
   border-radius: 50%;
-  background: rgba(217, 174, 73, 0.18);
-  color: var(--butter);
+  background: var(--white);
+  color: var(--sage-deep);
   display:flex; align-items:center; justify-content:center;
   font-family: var(--font-display);
   font-weight: 700; font-size: 1.15rem;
 }
-.steps h3{ color:#fff; font-size: 1.05rem; margin-bottom: 0.3em; }
-.steps p{ color: rgba(255,255,255,0.82); font-size: 0.92rem; margin:0; }
+.steps h3{ color: var(--ink); font-size: 1.05rem; margin-bottom: 0.3em; }
+.steps p{ color: var(--ink-soft); font-size: 0.92rem; margin:0; }
 
 /* ---------- Lead magnet ---------- */
 .lead-magnet-inner{

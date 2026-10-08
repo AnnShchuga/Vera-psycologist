@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
     revealEls.forEach(function (el) { observer.observe(el); });
   }
 
-  // Soft drifting dot/bokeh accent for dark sections — purely decorative,
+  // Soft drifting dot/bokeh accent for accent sections — purely decorative,
   // skipped entirely under reduced motion rather than shown static.
   var particleHosts = document.querySelectorAll('.particle-bg');
   if (particleHosts.length && !reduceMotion && 'requestAnimationFrame' in window) {
@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', function () {
           r: 1 + Math.random() * 2.6,
           vx: (Math.random() - 0.5) * 0.12,
           vy: (Math.random() - 0.5) * 0.12,
-          a: 0.12 + Math.random() * 0.4
+          a: 0.08 + Math.random() * 0.28
         });
       }
     }
@@ -186,7 +186,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (d.y > h) d.y = 0;
         ctx.beginPath();
         ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(217, 174, 73, ' + d.a + ')';
+        ctx.fillStyle = 'rgba(32, 48, 26, ' + d.a + ')';
         ctx.fill();
       });
       requestAnimationFrame(tick);
