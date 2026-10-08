@@ -55,6 +55,92 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  // Testimonials: horizontal carousel with click-to-expand cards.
+  var track = document.getElementById('testimonialsTrack');
+  if (track) {
+    var cards = Array.prototype.slice.call(track.querySelectorAll('.testimonial-card'));
+    var dotsWrap = document.getElementById('testimonialsDots');
+    var prevBtn = document.querySelector('.carousel-prev');
+    var nextBtn = document.querySelector('.carousel-next');
+    var dots = [];
+    var autoplayId = null;
+    var current = 0;
+
+    cards.forEach(function (card, i) {
+      var dot = document.createElement('button');
+      dot.type = 'button';
+      dot.setAttribute('aria-label', 'Отзыв ' + (i + 1));
+      dot.addEventListener('click', function () { goTo(i); });
+      dotsWrap.appendChild(dot);
+      dots.push(dot);
+
+      function toggleOpen() {
+        var isOpen = card.classList.toggle('is-open');
+        card.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        var more = card.querySelector('.testimonial-more');
+        if (more) more.textContent = isOpen ? 'Свернуть' : 'Читать дальше';
+        stopAutoplay();
+      }
+      card.addEventListener('click', toggleOpen);
+      card.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleOpen();
+        }
+      });
+    });
+
+    function setActive(i) {
+      current = i;
+      dots.forEach(function (d, j) { d.classList.toggle('is-active', j === i); });
+    }
+
+    function goTo(i) {
+      if (i < 0) i = cards.length - 1;
+      if (i >= cards.length) i = 0;
+      cards[i].scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+      setActive(i);
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', function () { stopAutoplay(); goTo(current - 1); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { stopAutoplay(); goTo(current + 1); });
+
+    // Keep dots in sync with manual/touch scrolling too.
+    var scrollTimer;
+    track.addEventListener('scroll', function () {
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(function () {
+        var trackCenter = track.scrollLeft + track.clientWidth / 2;
+        var closest = 0;
+        var closestDist = Infinity;
+        cards.forEach(function (card, i) {
+          var cardCenter = card.offsetLeft + card.offsetWidth / 2;
+          var dist = Math.abs(cardCenter - trackCenter);
+          if (dist < closestDist) { closestDist = dist; closest = i; }
+        });
+        setActive(closest);
+      }, 120);
+    });
+
+    function startAutoplay() {
+      if (reduceMotion) return;
+      stopAutoplay();
+      autoplayId = setInterval(function () {
+        if (!document.querySelector('.testimonial-card.is-open')) goTo(current + 1);
+      }, 5000);
+    }
+    function stopAutoplay() {
+      if (autoplayId) { clearInterval(autoplayId); autoplayId = null; }
+    }
+
+    track.addEventListener('mouseenter', stopAutoplay);
+    track.addEventListener('mouseleave', startAutoplay);
+    track.addEventListener('touchstart', stopAutoplay, { passive: true });
+
+    setActive(0);
+    startAutoplay();
+  }
+
   function initParticles(canvas, host) {
     var ctx = canvas.getContext('2d');
     var dpr = Math.min(window.devicePixelRatio || 1, 2);
