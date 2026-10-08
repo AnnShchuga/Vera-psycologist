@@ -331,6 +331,75 @@ img{ max-width: 100%; display:block; }
   white-space: nowrap;
 }
 
+/* ---------- Dark sections w/ drifting particle accent ---------- */
+.particle-bg{ position:relative; }
+.particle-canvas{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  pointer-events:none;
+  z-index:0;
+}
+
+.hero-dark{
+  position:relative;
+  background: var(--ink);
+  color: #fff;
+  overflow:hidden;
+}
+.hero-dark .hero-inner,
+.hero-dark .trust-strip{ position:relative; z-index:1; }
+.hero-dark .eyebrow{ color: var(--butter); }
+.hero-dark .hero-subtitle{ color: var(--butter); }
+.hero-dark .hero-lead{ color: rgba(255,255,255,0.78); }
+.hero-dark .word-strike{ text-decoration-color: var(--butter); }
+.hero-dark .word-handwritten{ color: var(--butter); }
+.hero-dark .hero-micro{ color: var(--butter); }
+.hero-dark .btn-primary{
+  background: var(--butter);
+  color: var(--ink);
+  box-shadow: 0 16px 34px -16px rgba(217, 174, 73, 0.45);
+}
+.hero-dark .btn-primary:hover{ filter: brightness(1.06); }
+.hero-dark .btn-ghost{ color:#fff; border-color: rgba(255,255,255,0.35); }
+.hero-dark .btn-ghost:hover{ background: rgba(255,255,255,0.1); }
+.hero-dark .hero-photo-frame{
+  box-shadow: 0 20px 50px -20px rgba(0,0,0,0.6);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.hero-photo-bw{
+  filter: grayscale(1) contrast(1.05);
+}
+
+/* "Обо мне в цифрах" treatment — thin oversized numbers, no card chrome.
+   Only the two real numeric facts get the big-number style; credentials
+   stay as plain pills since they aren't numbers. */
+.hero-dark .trust-strip{
+  background: transparent;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  padding: 44px 0 36px;
+}
+.hero-dark .trust-inner{ column-gap: 64px; }
+.hero-dark .stat-item{ background: none; padding: 0; }
+.hero-dark .stat-num{
+  font-weight: 300;
+  font-size: 3.2rem;
+  color: var(--butter);
+  position:relative;
+  padding-bottom: 12px;
+}
+.hero-dark .stat-num::after{
+  content:'';
+  position:absolute; left:50%; bottom:0;
+  transform: translateX(-50%);
+  width: 36px; height:2px;
+  background: var(--butter);
+}
+.hero-dark .trust-inner span.stat-label{ color: rgba(255,255,255,0.72); }
+.hero-dark .trust-credentials span{
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.85);
+}
+
 .hero-solo .hero-inner{
   grid-template-columns: 1fr;
   text-align: center;
@@ -502,6 +571,48 @@ img{ max-width: 100%; display:block; }
 .method-card h3{ font-size: 1.05rem; margin-bottom: 0.5em; }
 .method-card p{ font-size: 0.92rem; margin: 0; }
 
+/* ---------- Dark section shell (services pricing, reference-inspired) ---------- */
+.section-dark{
+  position:relative;
+  background: var(--ink);
+  color:#fff;
+  overflow:hidden;
+}
+.section-dark .wrap{ position:relative; z-index:1; }
+.section-dark .section-eyebrow{ color: rgba(255,255,255,0.72); }
+.section-dark .section-eyebrow::before{ background: var(--butter); }
+.section-dark h2{ color: #fff; }
+.section-dark .section-lead{ color: rgba(255,255,255,0.7); }
+
+.section-dark .service-card{
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.09);
+  box-shadow: none;
+}
+.section-dark .service-card.featured{ border-color: var(--butter); }
+.section-dark .badge{ background: var(--butter); color: var(--ink); }
+.section-dark .service-meta{ color: rgba(255,255,255,0.55); }
+.section-dark .service-card h3{ color: #fff; }
+.section-dark .service-card p{ color: rgba(255,255,255,0.72); }
+.section-dark .price-list{ border-top-color: rgba(255,255,255,0.12); }
+.section-dark .price-list li{ border-bottom-color: rgba(255,255,255,0.12); }
+.section-dark .price-list li span{ color: rgba(255,255,255,0.6); }
+.section-dark .price-list li strong{ color: var(--butter); }
+.section-dark .service-price{ color: var(--butter); font-weight: 700; }
+.section-dark .service-price-accent{ color: var(--butter); }
+.section-dark .btn-outline{
+  background: transparent;
+  color: var(--butter);
+  border-color: var(--butter);
+}
+.section-dark .btn-outline:hover{ background: var(--butter); color: var(--ink); }
+.section-dark .btn-primary{
+  background: var(--butter);
+  color: var(--ink);
+  box-shadow: 0 16px 34px -16px rgba(217, 174, 73, 0.45);
+}
+.section-dark .btn-primary:hover{ filter: brightness(1.06); }
+
 /* ---------- Services ---------- */
 .services-grid{
   display:grid;
@@ -659,11 +770,20 @@ img{ max-width: 100%; display:block; }
 
 /* ---------- Booking ---------- */
 .booking-section{
-  background: var(--sage-deep);
+  position:relative;
+  background: var(--ink);
   color: #fff;
+  overflow:hidden;
 }
+.booking-section .wrap{ position:relative; z-index:1; }
 .booking-section .section-eyebrow{ color: rgba(255,255,255,0.8); }
 .booking-section h2{ color: #fff; }
+.booking-section .btn-primary{
+  background: var(--butter);
+  color: var(--ink);
+  box-shadow: 0 16px 34px -16px rgba(217, 174, 73, 0.45);
+}
+.booking-section .btn-primary:hover{ filter: brightness(1.06); }
 .booking-inner{ text-align:center; }
 .booking-inner .btn-large{ margin-top: 12px; }
 
@@ -678,7 +798,8 @@ img{ max-width: 100%; display:block; }
   flex-shrink:0;
   width: 40px; height: 40px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.15);
+  background: rgba(217, 174, 73, 0.18);
+  color: var(--butter);
   display:flex; align-items:center; justify-content:center;
   font-family: var(--font-display);
   font-weight: 700; font-size: 1.15rem;
