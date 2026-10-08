@@ -16,8 +16,8 @@
   --line: #ddd3bb;
   --white: #ffffff;
 
-  --font-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Fira Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body: 'Fira Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-accent: 'Caveat', cursive;
 
   /* Crisper, smaller radius scale — cards read as tight rectangles with
@@ -76,7 +76,7 @@ h1,h2,h3{
 h2{ font-size: clamp(2.1rem, 3.8vw, 3.1rem); }
 h3{ font-size: 1.3rem; }
 
-/* The system's signature move: one word in a heading set in italic serif
+/* The system's signature move: one word in a heading set in italic
    for editorial emphasis — pairs with the roman weight around it. */
 em.accent-italic{
   font-style: italic;
@@ -331,6 +331,76 @@ img{ max-width: 100%; display:block; }
   white-space: nowrap;
 }
 
+/* ---------- Light "editorial" sections w/ drifting particle accent ----------
+   Reference (Bortnyak) runs these black bg / white text / orange accent;
+   per brief we invert the whole scheme into our own palette:
+   black→light surface, white→ink text, orange→sage-deep (green). */
+.particle-bg{ position:relative; }
+.particle-canvas{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  pointer-events:none;
+  z-index:0;
+}
+
+.hero-accent{
+  position:relative;
+  background: var(--beige);
+  color: var(--ink);
+  overflow:hidden;
+}
+.hero-accent .hero-inner,
+.hero-accent .trust-strip{ position:relative; z-index:1; }
+.hero-accent .eyebrow{ color: var(--sage-deep); }
+.hero-accent .hero-subtitle{ color: var(--sage-deep); }
+.hero-accent .hero-lead{ color: var(--ink-soft); }
+.hero-accent .word-strike{ text-decoration-color: var(--sage-deep); }
+.hero-accent .word-handwritten{ color: var(--sage-deep); }
+.hero-accent .hero-micro{ color: var(--sage-deep); }
+.hero-accent .btn-primary{
+  background: var(--sage-deep);
+  color: #fff;
+  box-shadow: var(--cta-shadow);
+}
+.hero-accent .btn-ghost{ color: var(--ink); border-color: var(--beige-deep); }
+.hero-accent .btn-ghost:hover{ background: var(--cream); }
+.hero-accent .hero-photo-frame{
+  box-shadow: var(--shadow);
+}
+.hero-photo-bw{
+  filter: grayscale(1) contrast(1.05);
+}
+
+/* "Обо мне в цифрах" treatment — thin oversized numbers, no card chrome.
+   Only the two real numeric facts get the big-number style; credentials
+   stay as plain pills since they aren't numbers. */
+.hero-accent .trust-strip{
+  background: transparent;
+  border-top: 1px solid var(--beige-deep);
+  padding: 44px 0 36px;
+}
+.hero-accent .trust-inner{ column-gap: 64px; }
+.hero-accent .stat-item{ background: none; padding: 0; }
+.hero-accent .stat-num{
+  font-weight: 300;
+  font-size: 3.2rem;
+  color: var(--sage-deep);
+  position:relative;
+  padding-bottom: 12px;
+}
+.hero-accent .stat-num::after{
+  content:'';
+  position:absolute; left:50%; bottom:0;
+  transform: translateX(-50%);
+  width: 36px; height:2px;
+  background: var(--butter);
+}
+.hero-accent .trust-inner span.stat-label{ color: var(--ink-soft); }
+.hero-accent .trust-credentials span{
+  background: var(--cream);
+  color: var(--ink);
+}
+
 .hero-solo .hero-inner{
   grid-template-columns: 1fr;
   text-align: center;
@@ -502,6 +572,47 @@ img{ max-width: 100%; display:block; }
 .method-card h3{ font-size: 1.05rem; margin-bottom: 0.5em; }
 .method-card p{ font-size: 0.92rem; margin: 0; }
 
+/* ---------- Light section shell (services pricing, reference-inspired) ---------- */
+.section-accent{
+  position:relative;
+  background: var(--beige);
+  color: var(--ink);
+  overflow:hidden;
+}
+.section-accent .wrap{ position:relative; z-index:1; }
+.section-accent .section-eyebrow{ color: var(--sage-deep); }
+.section-accent .section-eyebrow::before{ background: var(--sage); }
+.section-accent h2{ color: var(--ink); }
+.section-accent .section-lead{ color: var(--ink-soft); }
+
+.section-accent .service-card{
+  background: var(--white);
+  border: 1px solid var(--beige-deep);
+  box-shadow: var(--shadow);
+}
+.section-accent .service-card.featured{ border-color: var(--sage-deep); }
+.section-accent .badge{ background: var(--sage-deep); color: #fff; }
+.section-accent .service-meta{ color: var(--sage-deep); }
+.section-accent .service-card h3{ color: var(--ink); }
+.section-accent .service-card p{ color: var(--ink-soft); }
+.section-accent .price-list{ border-top-color: var(--line); }
+.section-accent .price-list li{ border-bottom-color: var(--line); }
+.section-accent .price-list li span{ color: var(--ink-soft); }
+.section-accent .price-list li strong{ color: var(--ink); }
+.section-accent .service-price{ color: var(--sage-deep); font-weight: 700; }
+.section-accent .service-price-accent{ color: var(--sage-deep); }
+.section-accent .btn-outline{
+  background: transparent;
+  color: var(--sage-deep);
+  border-color: var(--sage-deep);
+}
+.section-accent .btn-outline:hover{ background: var(--sage-deep); color: #fff; }
+.section-accent .btn-primary{
+  background: var(--sage-deep);
+  color: #fff;
+  box-shadow: var(--cta-shadow);
+}
+
 /* ---------- Services ---------- */
 .services-grid{
   display:grid;
@@ -562,19 +673,32 @@ img{ max-width: 100%; display:block; }
 }
 .service-card .btn{ margin-top: auto; align-self: flex-start; }
 
-/* ---------- Testimonials ---------- */
-.testimonials-grid{
-  display:grid;
-  grid-template-columns: repeat(3, 1fr);
+/* ---------- Testimonials (horizontal carousel, click to expand) ---------- */
+.testimonials-carousel{ position:relative; }
+.testimonials-track{
+  display:flex;
   gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scroll-behavior: smooth;
+  padding: 4px 4px 12px;
+  margin: 0 -4px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
+.testimonials-track::-webkit-scrollbar{ display:none; }
 .testimonial-card{
+  flex: 0 0 min(340px, 84vw);
+  scroll-snap-align: start;
   background: var(--white);
   border-radius: var(--radius);
   padding: 30px;
   box-shadow: var(--shadow);
   display:flex; flex-direction:column;
+  cursor: pointer;
+  transition: box-shadow .2s ease, transform .2s ease;
 }
+.testimonial-card:hover{ transform: translateY(-2px); box-shadow: 0 14px 30px -14px rgba(32,28,20,0.3); }
 .testimonial-card::before{
   content: "\201C";
   font-family: var(--font-display);
@@ -588,7 +712,53 @@ img{ max-width: 100%; display:block; }
   color: var(--ink);
   margin: 0 0 1.4em;
   flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
+.testimonial-card.is-open{ flex-basis: min(440px, 90vw); }
+.testimonial-card.is-open p{
+  -webkit-line-clamp: unset;
+  overflow: visible;
+}
+.testimonial-more{
+  align-self:flex-start;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--sage-deep);
+  margin-top: 10px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.carousel-controls{
+  display:flex; align-items:center; justify-content:center;
+  gap: 18px;
+  margin-top: 20px;
+}
+.carousel-btn{
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid var(--line);
+  background: var(--white);
+  color: var(--ink);
+  font-size: 1.1rem;
+  cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  transition: background .15s ease, border-color .15s ease;
+}
+.carousel-btn:hover{ background: var(--beige); border-color: var(--sage-deep); }
+.carousel-dots{ display:flex; gap: 8px; }
+.carousel-dots button{
+  width: 8px; height: 8px;
+  padding:0;
+  border-radius: 50%;
+  border: none;
+  background: var(--line);
+  cursor:pointer;
+}
+.carousel-dots button.is-active{ background: var(--sage-deep); }
 .quote-highlight{
   background: color-mix(in srgb, var(--butter) 55%, transparent);
   color: var(--ink);
@@ -659,11 +829,19 @@ img{ max-width: 100%; display:block; }
 
 /* ---------- Booking ---------- */
 .booking-section{
+  position:relative;
+  background: var(--wash);
+  color: var(--ink);
+  overflow:hidden;
+}
+.booking-section .wrap{ position:relative; z-index:1; }
+.booking-section .section-eyebrow{ color: var(--sage-deep); }
+.booking-section h2{ color: var(--ink); }
+.booking-section .btn-primary{
   background: var(--sage-deep);
   color: #fff;
+  box-shadow: var(--cta-shadow);
 }
-.booking-section .section-eyebrow{ color: rgba(255,255,255,0.8); }
-.booking-section h2{ color: #fff; }
 .booking-inner{ text-align:center; }
 .booking-inner .btn-large{ margin-top: 12px; }
 
@@ -678,13 +856,14 @@ img{ max-width: 100%; display:block; }
   flex-shrink:0;
   width: 40px; height: 40px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.15);
+  background: var(--white);
+  color: var(--sage-deep);
   display:flex; align-items:center; justify-content:center;
   font-family: var(--font-display);
   font-weight: 700; font-size: 1.15rem;
 }
-.steps h3{ color:#fff; font-size: 1.05rem; margin-bottom: 0.3em; }
-.steps p{ color: rgba(255,255,255,0.82); font-size: 0.92rem; margin:0; }
+.steps h3{ color: var(--ink); font-size: 1.05rem; margin-bottom: 0.3em; }
+.steps p{ color: var(--ink-soft); font-size: 0.92rem; margin:0; }
 
 /* ---------- Lead magnet ---------- */
 .lead-magnet-inner{
@@ -1001,7 +1180,6 @@ img{ max-width: 100%; display:block; }
   .about-grid{ grid-template-columns: 1fr; }
   .methods-grid{ grid-template-columns: repeat(2, 1fr); }
   .services-grid{ grid-template-columns: repeat(2, 1fr); }
-  .testimonials-grid{ grid-template-columns: repeat(2, 1fr); }
   .projects-grid{ grid-template-columns: repeat(2, 1fr); }
   .resource-grid{ grid-template-columns: repeat(2, 1fr); }
   .crisis-grid{ grid-template-columns: 1fr; }
@@ -1018,7 +1196,6 @@ img{ max-width: 100%; display:block; }
 @media (max-width: 620px){
   .methods-grid{ grid-template-columns: 1fr; }
   .services-grid{ grid-template-columns: 1fr; }
-  .testimonials-grid{ grid-template-columns: 1fr; }
   .projects-grid{ grid-template-columns: 1fr; }
   .resource-grid{ grid-template-columns: 1fr; }
   .section{ padding: 64px 0; }

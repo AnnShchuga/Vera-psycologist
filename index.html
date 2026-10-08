@@ -20,7 +20,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%23b9c2a7'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='26' fill='%233f3629' text-anchor='middle'%3E%D0%92%D0%97%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@400;500;600;700;800&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <script type="application/ld+json">
 {
@@ -78,7 +78,7 @@
 <main id="main">
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero hero-accent particle-bg">
     <div class="wrap hero-inner">
       <div class="hero-text">
         <p class="eyebrow">Интегративный психолог-консультант</p>
@@ -99,7 +99,7 @@
       <div class="hero-visual" aria-hidden="true">
         <div class="hero-blob"></div>
         <div class="hero-photo-frame">
-          <img class="hero-photo" src="img/vera-hero.jpg" alt="Вера Зюлина">
+          <img class="hero-photo hero-photo-bw" src="img/vera-about.jpg" alt="Вера Зюлина">
         </div>
       </div>
     </div>
@@ -230,7 +230,7 @@
   </section>
 
   <!-- SERVICES -->
-  <section class="section" id="services">
+  <section class="section section-accent particle-bg" id="services">
     <div class="wrap">
       <p class="section-eyebrow">Форматы работы</p>
       <h2>Услуги</h2>
@@ -295,71 +295,87 @@
       <p class="section-eyebrow">Отзывы</p>
       <h2>Что говорят те, кто уже был на сессии</h2>
       <p class="section-lead">
-        Реальные сообщения из переписки с клиентами — публикуются с их согласия.
+        Я ценю доверие клиентов и уважаю приватность того, чем они делятся на сессиях.
+        Поэтому в отзывах нет фамилий, фото и контактов — только реальные сообщения,
+        опубликованные с согласия, и искренность.
       </p>
 
-      <div class="testimonials-grid">
+      <div class="testimonials-carousel">
+        <div class="testimonials-track" id="testimonialsTrack">
 
-        <article class="testimonial-card">
-          <p>
-            Я почувствовала прилив энергии, увидела и услышала, что мне нужно сделать
-            сейчас, чтобы приблизить своё будущее. <mark class="quote-highlight">Всё прошло деликатно
-            и бережно.</mark> У меня были слёзы на глазах, когда я это увидела.
-          </p>
-          <span class="testimonial-author">Нина Б.</span>
-          <span class="testimonial-tag">после «Распаковки суперсилы»</span>
-        </article>
+          <article class="testimonial-card" tabindex="0" role="button" aria-expanded="false">
+            <p>
+              Я почувствовала прилив энергии, увидела и услышала, что мне нужно сделать
+              сейчас, чтобы приблизить своё будущее. <mark class="quote-highlight">Всё прошло деликатно
+              и бережно.</mark> У меня были слёзы на глазах, когда я это увидела.
+            </p>
+            <span class="testimonial-author">Нина Б.</span>
+            <span class="testimonial-tag">после «Распаковки суперсилы»</span>
+            <span class="testimonial-more">Читать дальше</span>
+          </article>
 
-        <article class="testimonial-card">
-          <p>
-            Прёт от вчерашней Распаковки! Поняла, что хочу организовывать бизнес-тренинги
-            наряду с другими мероприятиями. <mark class="quote-highlight">Ценно, полезно,
-            профессионально!</mark>
-          </p>
-          <span class="testimonial-author">Виктория Г.</span>
-          <span class="testimonial-tag">после «Распаковки суперсилы»</span>
-        </article>
+          <article class="testimonial-card" tabindex="0" role="button" aria-expanded="false">
+            <p>
+              Прёт от вчерашней Распаковки! Поняла, что хочу организовывать бизнес-тренинги
+              наряду с другими мероприятиями. <mark class="quote-highlight">Ценно, полезно,
+              профессионально!</mark>
+            </p>
+            <span class="testimonial-author">Виктория Г.</span>
+            <span class="testimonial-tag">после «Распаковки суперсилы»</span>
+            <span class="testimonial-more">Читать дальше</span>
+          </article>
 
-        <article class="testimonial-card">
-          <p>
-            Раньше я не занималась ничем подобным, и такой формат — это что-то невероятное:
-            не только вкусно поесть в красивом месте, но и <mark class="quote-highlight">понять
-            в себе что-то важное</mark>.
-          </p>
-          <span class="testimonial-author">Анастасия Щ.</span>
-          <span class="testimonial-tag">после «Бранча с психологом»</span>
-        </article>
+          <article class="testimonial-card" tabindex="0" role="button" aria-expanded="false">
+            <p>
+              Раньше я не занималась ничем подобным, и такой формат — это что-то невероятное:
+              не только вкусно поесть в красивом месте, но и <mark class="quote-highlight">понять
+              в себе что-то важное</mark>.
+            </p>
+            <span class="testimonial-author">Анастасия Щ.</span>
+            <span class="testimonial-tag">после «Бранча с психологом»</span>
+            <span class="testimonial-more">Читать дальше</span>
+          </article>
 
-        <article class="testimonial-card">
-          <p>
-            Ходила на такой формат впервые, но вышла в восторге! Получилось проработать
-            даже несколько запросов, компания была тёплой, а организатор — <mark class="quote-highlight">внимательным
-            и трепетным</mark>.
-          </p>
-          <span class="testimonial-author">Ксения С.</span>
-          <span class="testimonial-tag">после «Бранча с психологом»</span>
-        </article>
+          <article class="testimonial-card" tabindex="0" role="button" aria-expanded="false">
+            <p>
+              Ходила на такой формат впервые, но вышла в восторге! Получилось проработать
+              даже несколько запросов, компания была тёплой, а организатор — <mark class="quote-highlight">внимательным
+              и трепетным</mark>.
+            </p>
+            <span class="testimonial-author">Ксения С.</span>
+            <span class="testimonial-tag">после «Бранча с психологом»</span>
+            <span class="testimonial-more">Читать дальше</span>
+          </article>
 
-        <article class="testimonial-card">
-          <p>
-            За месяц разобралась со своими чувствами, <mark class="quote-highlight">дневник чувств
-            — это просто находка</mark>. С тобой мне было очень легко и интересно, ты прекрасный
-            проводник во внутренний мир души.
-          </p>
-          <span class="testimonial-author">Гульназ Д.</span>
-          <span class="testimonial-tag">личная терапия</span>
-        </article>
+          <article class="testimonial-card" tabindex="0" role="button" aria-expanded="false">
+            <p>
+              За месяц разобралась со своими чувствами, <mark class="quote-highlight">дневник чувств
+              — это просто находка</mark>. С тобой мне было очень легко и интересно, ты прекрасный
+              проводник во внутренний мир души.
+            </p>
+            <span class="testimonial-author">Гульназ Д.</span>
+            <span class="testimonial-tag">личная терапия</span>
+            <span class="testimonial-more">Читать дальше</span>
+          </article>
 
-        <article class="testimonial-card">
-          <p>
-            Рекомендации беру в действия. <mark class="quote-highlight">Читала итоги и прослезилась
-            от счастья</mark>, представив себя в будущем. Я рада, что в моей жизни произошла встреча
-            с тобой.
-          </p>
-          <span class="testimonial-author">Оксана Ш.</span>
-          <span class="testimonial-tag">после «Распаковки суперсилы»</span>
-        </article>
+          <article class="testimonial-card" tabindex="0" role="button" aria-expanded="false">
+            <p>
+              Рекомендации беру в действия. <mark class="quote-highlight">Читала итоги и прослезилась
+              от счастья</mark>, представив себя в будущем. Я рада, что в моей жизни произошла встреча
+              с тобой.
+            </p>
+            <span class="testimonial-author">Оксана Ш.</span>
+            <span class="testimonial-tag">после «Распаковки суперсилы»</span>
+            <span class="testimonial-more">Читать дальше</span>
+          </article>
 
+        </div>
+
+        <div class="carousel-controls">
+          <button type="button" class="carousel-btn carousel-prev" aria-label="Предыдущие отзывы">←</button>
+          <div class="carousel-dots" id="testimonialsDots"></div>
+          <button type="button" class="carousel-btn carousel-next" aria-label="Следующие отзывы">→</button>
+        </div>
       </div>
     </div>
   </section>
@@ -445,7 +461,7 @@
   </section>
 
   <!-- BOOKING -->
-  <section class="section booking-section">
+  <section class="section booking-section particle-bg">
     <div class="wrap booking-inner">
       <p class="section-eyebrow">Как начать</p>
       <h2>Запись на консультацию</h2>
